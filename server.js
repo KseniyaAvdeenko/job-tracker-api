@@ -3,15 +3,14 @@ const morgan = require('morgan');
 const authRoutes = require('./routes/authRoutes');
 const vacanciesRoutes = require('./routes/vacanciesRoutes')
 const mongoose = require('mongoose');
+require('dotenv').config()
 
 
-const mongoUrl = 'mongodb://mongo:AGJdzYOwRhToFLPcvHNWOXEJfehBgceP@junction.proxy.rlwy.net:19800'
-
-mongoose.connect(mongoUrl)
+mongoose.connect(process.env.MONGO_URL)
 
 
 
-const PORT = 8000;
+const PORT = process.env.PORT;
 const app = express();
 
 app.listen(PORT, (error) => {
