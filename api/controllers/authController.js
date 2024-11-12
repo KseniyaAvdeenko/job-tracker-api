@@ -41,6 +41,24 @@ const login = async (req, res) => {
     }
 }
 
+const getCurrentUser = async (req, res) => {
+    try {
+        const headers = req.headers
+        if (headers.authorization) {
+            const token = await UserToken.findOne({token: headers.authorization.split(' ')[1]})
+            if (token) {
+                const currentUser = await User.findById(token.userId)
+                res.status(200).json(currentUser)
+            }else{
+                handleError(res, 401, {message: 'Unauthorized'})
+            }
+        }
+    } catch (error) {
+        handleError(res, 500, error)
+    }
+}
+
+
 const logout = async (req, res) => {
     try {
         const headers = req.headers
@@ -62,5 +80,6 @@ const logout = async (req, res) => {
 module.exports = {
     signup: signup,
     login: login,
-    logout: logout
+    logout: logout,
+    getCurrentUser:getCurrentUser
 }
