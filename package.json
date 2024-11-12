@@ -4,7 +4,7 @@
   "description": "job-tracket-api",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon api/server.js"
   },
   "author": "",
   "license": "ISC",

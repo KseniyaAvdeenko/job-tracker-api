@@ -1,7 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const authRoutes = require('./routes/authRoutes');
-const vacanciesRoutes = require('./routes/vacanciesRoutes')
+const vacanciesRoutes = require('./routes/vacanciesRoutes');
+const statusRoutes = require('./routes/statusRoutes')
 const mongoose = require('mongoose');
 require('dotenv').config()
 
@@ -20,7 +21,6 @@ app.listen(PORT, (error) => {
 //middleware
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 app.use(express.json())
-
 app.use(authRoutes)
 app.use(vacanciesRoutes)
-
+app.use(statusRoutes)
