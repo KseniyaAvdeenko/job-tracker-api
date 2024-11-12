@@ -1,0 +1,21 @@
+{
+  "name": "job-tracker-api",
+  "version": "1.0.0",
+  "description": "job-tracket-api",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "js-base64": "^3.7.7",
+    "mongoose": "^8.8.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
