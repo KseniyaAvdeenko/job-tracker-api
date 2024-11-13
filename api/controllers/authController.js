@@ -21,7 +21,7 @@ const signup = async (req, res) => {
 const login = async (req, res) => {
     try {
         const body = req.body
-        const user = await User.findOne({username: body.username, email: body.email, password: body.password});
+        const user = await User.findOne({email: body.email, password: body.password});
         if (user) {
             const token = await UserToken.findOne({userId: user._id});
             if (token) {
