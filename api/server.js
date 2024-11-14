@@ -22,7 +22,7 @@ app.listen(PORT, (error) => {
 //middleware
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 app.use(cors({
-  origin: [process.env.REACT_URL],
+  origin: [process.env.REACT_URL, 'http://localhost:3000'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 
